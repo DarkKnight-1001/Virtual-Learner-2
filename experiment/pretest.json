@@ -2,35 +2,77 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "The additional capacitor in the Clapp oscillator (C3) primarily improves:",
+  
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Amplification",
+        "b": "Power output",
+        "c": "Frequency stability",
+        "d": "Input impedance"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "answer :": {
+        
+        "c": "Frequency stability"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question":"LC oscillators are mostly used in:",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": " Audio amplifiers",
+        "b": "Digital logic gates",
+        "c": "RF and high-frequency applications",
+        "d": "Voltage regulators"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "Answers:": {
+       
+        "c": "RF and high-frequency applications"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"Which of the following statements is true for Hartley oscillator?",
+      "answers": {
+        "a": "It uses two capacitors and one inductor.",
+        "b": " It provides feedback via capacitive coupling.",
+        "c": "Its frequency depends on the sum of two inductances.",
+        "d": "It cannot be used above 1 MHz."
+      },
+      "Answers:": {
+       
+        "c": "its frequency depends on the sum of two inductances."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"Which of the following is not an LC oscillator?",
+      "answers": {
+        "a": "Colpitts oscillator",
+        "b": "Hartley oscillator",
+        "c": "Clapp oscillator",
+        "d": "Wien bridge oscillator"
+      },
+      "Answers:": {
+       
+        "d": "Wien bridge oscillator"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":" In a Hartley oscillator, feedback is taken from:",
+      "answers": {
+        "a": "A tapped capacitor",
+        "b": "A diode",
+        "c": " A tapped inductor",
+        "d": " A transformer"
+      },
+      "Answers:": {
+       
+        "c": ". A tapped inductor"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"

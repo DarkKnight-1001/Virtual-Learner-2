@@ -1,13 +1,504 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LC Oscillator Simulator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .control-panel {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .visualization {
+            flex: 2;
+            min-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .oscillator-type {
+            margin-bottom: 20px;
+        }
+        
+        .circuit-diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .circuit-diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        #outputGraph {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+        
+        .results {
+            margin-top: 20px;
+        }
+        
+        .parameter-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-		<!-- Your code goes here-->
+    <h1>LC Oscillator Simulator</h1>
+    
+    <div class="container">
+        <div class="control-panel">
+            <h2>Control Panel</h2>
+            
+            <div class="form-group oscillator-type">
+                <label for="oscillatorType">Oscillator Type:</label>
+                <select id="oscillatorType">
+                    <option value="hartley">Hartley Oscillator</option>
+                    <option value="colpitts">Colpitts Oscillator</option>
+                    <option value="clapp">Clapp Oscillator</option>
+                </select>
+            </div>
+            
+            <div id="hartleyParams" class="oscillator-params">
+                <div class="form-group">
+                    <label for="hartleyL1">Inductor L1 (μH):</label>
+                    <input type="number" id="hartleyL1" value="100" min="1" step="1">
+                    <div class="parameter-info">Main tank circuit inductor</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hartleyL2">Feedback Inductor L2 (μH):</label>
+                    <input type="number" id="hartleyL2" value="10" min="1" step="1">
+                    <div class="parameter-info">Feedback inductor (tapped or separate)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hartleyC">Capacitor C (pF):</label>
+                    <input type="number" id="hartleyC" value="100" min="1" step="1">
+                    <div class="parameter-info">Tank circuit capacitor</div>
+                </div>
+            </div>
+            
+            <div id="colpittsParams" class="oscillator-params" style="display:none;">
+                <div class="form-group">
+                    <label for="colpittsL">Inductor L (μH):</label>
+                    <input type="number" id="colpittsL" value="100" min="1" step="1">
+                    <div class="parameter-info">Tank circuit inductor</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="colpittsC1">Capacitor C1 (pF):</label>
+                    <input type="number" id="colpittsC1" value="100" min="1" step="1">
+                    <div class="parameter-info">Main tank capacitor</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="colpittsC2">Feedback Capacitor C2 (pF):</label>
+                    <input type="number" id="colpittsC2" value="100" min="1" step="1">
+                    <div class="parameter-info">Feedback capacitor</div>
+                </div>
+            </div>
+            
+            <div id="clappParams" class="oscillator-params" style="display:none;">
+                <div class="form-group">
+                    <label for="clappL">Inductor L (μH):</label>
+                    <input type="number" id="clappL" value="100" min="1" step="1">
+                    <div class="parameter-info">Tank circuit inductor</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clappC1">Capacitor C1 (pF):</label>
+                    <input type="number" id="clappC1" value="100" min="1" step="1">
+                    <div class="parameter-info">Main tank capacitor</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clappC2">Capacitor C2 (pF):</label>
+                    <input type="number" id="clappC2" value="100" min="1" step="1">
+                    <div class="parameter-info">Feedback capacitor</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clappC3">Series Capacitor C3 (pF):</label>
+                    <input type="number" id="clappC3" value="50" min="1" step="1">
+                    <div class="parameter-info">Series capacitor (stabilizes frequency)</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="transistorGain">Transistor Gain (β):</label>
+                <input type="number" id="transistorGain" value="100" min="10" step="1">
+                <div class="parameter-info">Current gain of the amplifier transistor</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="supplyVoltage">Supply Voltage (V):</label>
+                <input type="number" id="supplyVoltage" value="12" min="1" step="0.1">
+                <div class="parameter-info">DC power supply voltage</div>
+            </div>
+            
+            <button id="simulateBtn">Simulate</button>
+        </div>
+        
+        <div class="visualization">
+            <h2>Simulation Results</h2>
+            
+            <div class="circuit-diagram">
+                <img id="circuitDiagram" src="" alt="Circuit Diagram">
+            </div>
+            
+            <div id="outputGraph"></div>
+            
+            <div class="results">
+                <h3>Calculated Parameters</h3>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                            <th>Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Oscillation Frequency</td>
+                            <td id="freqResult">-</td>
+                            <td>MHz</td>
+                        </tr>
+                        <tr>
+                            <td>Feedback Ratio</td>
+                            <td id="feedbackResult">-</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Gain Required</td>
+                            <td id="gainResult">-</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Output Amplitude</td>
+                            <td id="amplitudeResult">-</td>
+                            <td>V</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="results">
+                <h3>Observation Table</h3>
+                <table id="observationTable">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Value</th>
+                            <th>Effect on Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    <!-- Include Plotly for graphing -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <script>
+        // Circuit diagram images (placeholder URLs - you would replace these with actual images)
+        const circuitImages = {
+            hartley: "https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/oscillator-osc6.gif",
+            colpitts: "https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/oscillator-osc7.gif",
+            clapp: "https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/oscillator-osc9.gif"
+        };
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up event listeners
+            document.getElementById('oscillatorType').addEventListener('change', updateOscillatorType);
+            document.getElementById('simulateBtn').addEventListener('click', runSimulation);
+            
+            // Initialize with Hartley oscillator
+            updateOscillatorType();
+        });
+        
+        // Update the UI based on selected oscillator type
+        function updateOscillatorType() {
+            const type = document.getElementById('oscillatorType').value;
+            
+            // Hide all parameter sections
+            document.querySelectorAll('.oscillator-params').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the selected one
+            document.getElementById(`${type}Params`).style.display = 'block';
+            
+            // Update circuit diagram
+            document.getElementById('circuitDiagram').src = circuitImages[type];
+        }
+        
+        // Main simulation function
+        function runSimulation() {
+            const type = document.getElementById('oscillatorType').value;
+            const gain = parseFloat(document.getElementById('transistorGain').value);
+            const supplyVoltage = parseFloat(document.getElementById('supplyVoltage').value);
+            
+            let frequency, feedbackRatio, minGain, amplitude;
+            
+            // Calculate based on oscillator type
+            switch(type) {
+                case 'hartley':
+                    const l1 = parseFloat(document.getElementById('hartleyL1').value) * 1e-6; // Convert μH to H
+                    const l2 = parseFloat(document.getElementById('hartleyL2').value) * 1e-6;
+                    const c = parseFloat(document.getElementById('hartleyC').value) * 1e-12; // Convert pF to F
+                    
+                    const totalL = l1 + l2;
+                    frequency = 1 / (2 * Math.PI * Math.sqrt(totalL * c));
+                    feedbackRatio = l2 / l1;
+                    minGain = l1 / l2;
+                    break;
+                    
+                case 'colpitts':
+                    const colpittsL = parseFloat(document.getElementById('colpittsL').value) * 1e-6;
+                    const c1 = parseFloat(document.getElementById('colpittsC1').value) * 1e-12;
+                    const c2 = parseFloat(document.getElementById('colpittsC2').value) * 1e-12;
+                    
+                    const seriesC = (c1 * c2) / (c1 + c2);
+                    frequency = 1 / (2 * Math.PI * Math.sqrt(colpittsL * seriesC));
+                    feedbackRatio = c1 / c2;
+                    minGain = c2 / c1;
+                    break;
+                    
+                case 'clapp':
+                    const clappL = parseFloat(document.getElementById('clappL').value) * 1e-6;
+                    const clappC1 = parseFloat(document.getElementById('clappC1').value) * 1e-12;
+                    const clappC2 = parseFloat(document.getElementById('clappC2').value) * 1e-12;
+                    const clappC3 = parseFloat(document.getElementById('clappC3').value) * 1e-12;
+                    
+                    const totalCap = 1 / (1/clappC1 + 1/clappC2 + 1/clappC3);
+                    frequency = 1 / (2 * Math.PI * Math.sqrt(clappL * totalCap));
+                    feedbackRatio = clappC2 / clappC1;
+                    minGain = clappC1 / clappC2;
+                    break;
+            }
+            
+            // Calculate output amplitude (simplified model)
+            amplitude = supplyVoltage * 0.8; // Rough estimate
+            
+            // Display results
+            document.getElementById('freqResult').textContent = (frequency / 1e6).toFixed(3);
+            document.getElementById('feedbackResult').textContent = feedbackRatio.toFixed(3);
+            document.getElementById('gainResult').textContent = minGain.toFixed(1);
+            document.getElementById('amplitudeResult').textContent = amplitude.toFixed(2);
+            
+            // Update observation table
+            updateObservationTable(type);
+            
+            // Generate and display the waveform
+            generateWaveform(frequency, amplitude);
+        }
+        
+        // Update the observation table based on oscillator type
+        function updateObservationTable(type) {
+            const tableBody = document.querySelector('#observationTable tbody');
+            tableBody.innerHTML = '';
+            
+            let rows = [];
+            
+            switch(type) {
+                case 'hartley':
+                    const l1 = parseFloat(document.getElementById('hartleyL1').value);
+                    const l2 = parseFloat(document.getElementById('hartleyL2').value);
+                    const c = parseFloat(document.getElementById('hartleyC').value);
+                    
+                    rows = [
+                        ['L1 (Main Inductor)', `${l1} μH`, 'Increase → Frequency Decreases'],
+                        ['L2 (Feedback Inductor)', `${l2} μH`, 'Increase → Frequency Decreases'],
+                        ['C (Capacitor)', `${c} pF`, 'Increase → Frequency Decreases']
+                    ];
+                    break;
+                    
+                case 'colpitts':
+                    const colpittsL = parseFloat(document.getElementById('colpittsL').value);
+                    const c1 = parseFloat(document.getElementById('colpittsC1').value);
+                    const c2 = parseFloat(document.getElementById('colpittsC2').value);
+                    
+                    rows = [
+                        ['L (Inductor)', `${colpittsL} μH`, 'Increase → Frequency Decreases'],
+                        ['C1 (Main Capacitor)', `${c1} pF`, 'Increase → Frequency Decreases'],
+                        ['C2 (Feedback Capacitor)', `${c2} pF`, 'Increase → Frequency Decreases']
+                    ];
+                    break;
+                    
+                case 'clapp':
+                    const clappL = parseFloat(document.getElementById('clappL').value);
+                    const clappC1 = parseFloat(document.getElementById('clappC1').value);
+                    const clappC2 = parseFloat(document.getElementById('clappC2').value);
+                    const clappC3 = parseFloat(document.getElementById('clappC3').value);
+                    
+                    rows = [
+                        ['L (Inductor)', `${clappL} μH`, 'Increase → Frequency Decreases'],
+                        ['C1 (Main Capacitor)', `${clappC1} pF`, 'Increase → Frequency Decreases (minor effect)'],
+                        ['C2 (Feedback Capacitor)', `${clappC2} pF`, 'Increase → Frequency Decreases (minor effect)'],
+                        ['C3 (Series Capacitor)', `${clappC3} pF`, 'Increase → Frequency Decreases (dominant effect)']
+                    ];
+                    break;
+            }
+            
+            // Add transistor and supply voltage rows
+            const gain = parseFloat(document.getElementById('transistorGain').value);
+            const voltage = parseFloat(document.getElementById('supplyVoltage').value);
+            
+            rows.push(
+                ['Transistor Gain (β)', gain, 'Must be greater than minimum required gain'],
+                ['Supply Voltage', `${voltage} V`, 'Affects output amplitude, not frequency']
+            );
+            
+            // Populate the table
+            rows.forEach(row => {
+                const tr = document.createElement('tr');
+                row.forEach(cell => {
+                    const td = document.createElement('td');
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+        
+        // Generate and display the output waveform
+        function generateWaveform(frequency, amplitude) {
+            // Generate time points
+            const points = 500;
+            const duration = 3 / frequency; // Show 3 cycles
+            const timeStep = duration / points;
+            
+            let time = [];
+            let voltage = [];
+            
+            for (let i = 0; i < points; i++) {
+                const t = i * timeStep;
+                time.push(t * 1e6); // Convert to microseconds for display
+                
+                // Simple sine wave with some distortion to make it look more realistic
+                const phase = 2 * Math.PI * frequency * t;
+                voltage.push(amplitude * Math.sin(phase) * 
+                            (0.9 + 0.1 * Math.sin(0.5 * phase))); // Add some distortion
+            }
+            
+            // Create the plot
+            const trace = {
+                x: time,
+                y: voltage,
+                type: 'scatter',
+                mode: 'lines',
+                line: {color: '#3498db', width: 2},
+                name: 'Output Voltage'
+            };
+            
+            const layout = {
+                title: 'Oscillator Output Waveform',
+                xaxis: {
+                    title: 'Time (μs)',
+                    showgrid: true,
+                    zeroline: true
+                },
+                yaxis: {
+                    title: 'Voltage (V)',
+                    showgrid: true,
+                    zeroline: true
+                },
+                margin: {t: 40, r: 40, b: 60, l: 60}
+            };
+            
+            Plotly.newPlot('outputGraph', [trace], layout);
+        }
+    </script>
 </body>
 </html>

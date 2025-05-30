@@ -1,1 +1,1 @@
-## Experiment name
+## To study of LC oscillators

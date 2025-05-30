@@ -1,1 +1,1 @@
-### Aim of the experiment
+### To Study of the LC oscillator with user interface

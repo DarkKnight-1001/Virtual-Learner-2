@@ -2,35 +2,77 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question":"What is the basic principle behind LC oscillators?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Negative feedback",
+        "b": "Resonance in an LC circuit",
+        "c": "Current amplification",
+        "d": "Pulse-width modulation"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "Answer:": {
+        
+        
+        "b": "Resonance in an LC circuit"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "In a Hartley oscillator, feedback is provided through:",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": " Capacitor divider",
+        "b": " Transformer coupling",
+        "c": "Tapped inductors",
+        "d": "Op-amp differential input"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "Answer:": {
+        
+        "d": "Tapped inductors"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In a Colpitts oscillator, the feedback network consists of:",
+      "answers": {
+        "a": "Two inductors ",
+        "b": " One capacitor and one inductor ",
+        "c": "Two capacitors in series",
+        "d": "A tapped inductor"
+      },
+      "Answer:": {
+        
+        "c": "Two capacitors in series"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following gives better frequency stability?",
+      "answers": {
+        "a": " Hartley Oscillator",
+        "b": "Clapp Oscillator ",
+        "c": "Colpitts Oscillator",
+        "d": "RC Phase Shift Oscillator"
+      },
+      "Answer:": {
+        
+        "d": "Clapp Oscillator"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The Clapp oscillator is a modified version of the:",
+      "answers": {
+        "a": " Wien Bridge Oscillator ",
+        "b": " RC Phase Shift Oscillator ",
+        "c": " Colpitts Oscillator",
+        "d": " Hartley Oscillator"
+      },
+      "Answer:": {
+        
+        "c": " Colpitts Oscillator"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
