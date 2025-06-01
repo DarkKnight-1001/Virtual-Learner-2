@@ -2,79 +2,79 @@
   "version": 2.0,
   "questions": [
     {
-      "question":"What is the basic principle behind LC oscillators?",
+      "question": " Which of the following best describes a non-sinusoidal oscillator?",
+  
       "answers": {
-        "a": "Negative feedback",
-        "b": "Resonance in an LC circuit",
-        "c": "Current amplification",
-        "d": "Pulse-width modulation"
+        "a": "An oscillator that produces only sine waves",
+        "b": "An oscillator that produces exponentially decaying signals",
+        "c": "An oscillator that generates square, triangular, or sawtooth waveform",
+        "d": "An oscillator that uses transformers to amplify sine waves"
       },
-      "Answer:": {
+      "answer :": {
         
-        
-        "b": "Resonance in an LC circuit"
+        "c": "An oscillator that generates square, triangular, or sawtooth waveforms"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question":"What is the primary application of non-sinusoidal oscillators?",
+      "answers": {
+        "a": " AC power generation ",
+        "b": "Signal filtering",
+        "c": "Timing and waveform generation in digital circuits",
+        "d": "Audio signal amplification"
+      },
+      "Answers:": {
+       
+        "c": "Timing and waveform generation in digital circuits"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"Which of the following is NOT a type of non-sinusoidal oscillator?",
+      "answers": {
+        "a": "Astable multivibrator",
+        "b": " Monostable multivibrator",
+        "c": "Wien bridge oscillator",
+        "d": "Schmitt trigger oscillator"
+      },
+      "Answers:": {
+       
+        "c": "Wien bridge oscillator"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+     {
+      "question":" In an astable multivibrator, the output is:",
+      "answers": {
+        "a": "Constant high",
+        "b": "Constant low",
+        "c": "A single pulse",
+        "d": "A continuous square wave without any stable state"
+      },
+      "Answers:": {
+       
+        "d": " A continuous square wave without any stable state"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+     {
+      "question":"A monostable multivibrator has how many stable states?",
+      "answers": {
+        "a": "zero",
+        "b": "One",
+        "c": "two",
+        "d": " Infinite"
+      },
+      "Answers:": {
+       
+        "b": "one"
       },
       "correctAnswer": "b",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "In a Hartley oscillator, feedback is provided through:",
-      "answers": {
-        "a": " Capacitor divider",
-        "b": " Transformer coupling",
-        "c": "Tapped inductors",
-        "d": "Op-amp differential input"
-      },
-      "Answer:": {
-        
-        "d": "Tapped inductors"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "In a Colpitts oscillator, the feedback network consists of:",
-      "answers": {
-        "a": "Two inductors ",
-        "b": " One capacitor and one inductor ",
-        "c": "Two capacitors in series",
-        "d": "A tapped inductor"
-      },
-      "Answer:": {
-        
-        "c": "Two capacitors in series"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "Which of the following gives better frequency stability?",
-      "answers": {
-        "a": " Hartley Oscillator",
-        "b": "Clapp Oscillator ",
-        "c": "Colpitts Oscillator",
-        "d": "RC Phase Shift Oscillator"
-      },
-      "Answer:": {
-        
-        "d": "Clapp Oscillator"
-      },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "The Clapp oscillator is a modified version of the:",
-      "answers": {
-        "a": " Wien Bridge Oscillator ",
-        "b": " RC Phase Shift Oscillator ",
-        "c": " Colpitts Oscillator",
-        "d": " Hartley Oscillator"
-      },
-      "Answer:": {
-        
-        "c": " Colpitts Oscillator"
-      },
-      "correctAnswer": "c",
       "difficulty": "beginner"
     }
   ]
