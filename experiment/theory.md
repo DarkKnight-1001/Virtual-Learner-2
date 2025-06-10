@@ -1,4 +1,4 @@
-### LC Oscillators – Detailed Theory
+
 ## Introduction
 LC oscillators are circuits that produce continuous sinusoidal waveforms at a certain frequency. The basic principle involves an LC tank circuit, where energy oscillates back and forth between the magnetic field of an inductor (L) and the electric field of a capacitor (C).
 
