@@ -91,7 +91,7 @@ The voltage divider (C1 and C2) provides feedback to the transistor base/gate.
 
 The transistor amplifies the signal, sustaining oscillations.
 
-Frequency of Oscillation:
+## Frequency of Oscillation:
 𝑓
 =
 1
