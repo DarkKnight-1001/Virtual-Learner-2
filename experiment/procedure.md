@@ -1,5 +1,5 @@
-### Procedure
-General Procedure for LC Oscillator Design
+
+### General Procedure for LC Oscillator Design
 Choose Desired Oscillation Frequency (
 𝑓
 f):
