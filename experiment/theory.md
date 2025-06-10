@@ -68,12 +68,12 @@ f=
 1
 ​
  
-Advantages
+## Advantages
 Simple to design.
 
 Suitable for high-frequency applications.
 
-Disadvantages
+## Disadvantages
 Frequency stability is moderate.
 
 Coil tapping may complicate tuning.
@@ -132,12 +132,12 @@ C
 1
 ​
  
-Advantages
+## Advantages
 Better frequency stability than Hartley.
 
 Widely used in RF circuits and crystal oscillators.
 
-Disadvantages
+## Disadvantages
 More complex than Hartley.
 
 Requires precise component values for desired frequency.
@@ -222,12 +222,12 @@ C
 1
 ​
  
-Advantages
+## Advantages
 High frequency stability.
 
 Useful in precision frequency applications.
 
-Disadvantages
+## Disadvantages
 Slightly more complex due to the extra capacitor.
 
 Requires careful component selection.
