@@ -40,33 +40,6 @@ The LC tank circuit determines the frequency.
 
 The transistor amplifies the signal and provides feedback from the inductor tap.
 
-Frequency of Oscillation:
-𝑓
-=
-1
-2
-𝜋
-(
-𝐿
-1
-+
-𝐿
-2
-)
-𝐶
-f= 
-2π 
-(L 
-1
-​
- +L 
-2
-​
- )C
-​
- 
-1
-​
  
 ## Advantages
 Simple to design.
@@ -91,45 +64,11 @@ The voltage divider (C1 and C2) provides feedback to the transistor base/gate.
 
 The transistor amplifies the signal, sustaining oscillations.
 
-## Frequency of Oscillation:
-𝑓
-=
-1
-2
-𝜋
-𝐿
-⋅
-𝐶
-1
-𝐶
-2
-𝐶
-1
-+
-𝐶
-2
-f= 
-2π 
-L⋅ 
-C 
-1
-​
- +C 
-2
-​
- 
-C 
-1
-​
- C 
-2
-​
  
 ​
  
 ​
  
-1
 ​
  
 ## Advantages
@@ -155,71 +94,7 @@ Similar to the Colpitts, but the frequency is controlled primarily by C3.
 
 C3 isolates the oscillation frequency from variations in C1 and C2, improving stability.
 
-Frequency of Oscillation:
-𝑓
-=
-1
-2
-𝜋
-𝐿
-⋅
-𝐶
-𝑒
-𝑞
-where
-1
-𝐶
-𝑒
-𝑞
-=
-1
-𝐶
-1
-+
-1
-𝐶
-2
-+
-1
-𝐶
-3
-f= 
-2π 
-L⋅C 
-eq
-​
- 
-​
- 
-1
-​
- where 
-C 
-eq
-​
- 
-1
-​
- = 
-C 
-1
-​
- 
-1
-​
- + 
-C 
-2
-​
- 
-1
-​
- + 
-C 
-3
-​
- 
-1
+
 ​
  
 ## Advantages
