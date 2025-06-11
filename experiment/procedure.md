@@ -4,9 +4,14 @@ Choose Desired Oscillation Frequency (
 𝑓
 f):
 
+<<<<<<< HEAD
 Use the formula: <br>
 <img src = "images/image_1.png"> <br>
 <!-- f = 1 / (2π√(LC)) -->
+=======
+Use the formula:
+f = 1 / (2π√(LC))
+>>>>>>> 6ad4c0b2eb4385b3b0e4afdce157e8b5ae34bd0b
 
  
 Where:
@@ -51,12 +56,19 @@ Biasing resistors and coupling capacitors
 
 Tank Circuit
 L<sub>1</sub> and L<sub>2</sub> are in series; C is parallel with the combination.
+<<<<<<< HEAD
 
 Oscillation Frequency <br>
 
 <img src = "images/image_2.png"> <br>
 <!-- f = 1 / (2π * sqrt((L<sub>1</sub> + L<sub>2</sub>) * C)) -->
 
+=======
+
+Oscillation Frequency
+f = 1 / (2π * sqrt((L<sub>1</sub> + L<sub>2</sub>) * C))
+
+>>>>>>> 6ad4c0b2eb4385b3b0e4afdce157e8b5ae34bd0b
 ​
  
 ## Feedback Mechanism
@@ -77,10 +89,15 @@ Biasing network
 Tank Circuit
 L is in parallel with the series combination of C<sub>1</sub> and C<sub>2</sub>.
 
+<<<<<<< HEAD
 Oscillation Frequency<br>
 
 <img src = "images/image_3.png"> <br>
 <!-- f = 1 / (2π * sqrt(L * (C<sub>1</sub> * C<sub>2</sub>) / (C<sub>1</sub> + C<sub>2</sub>))) -->
+=======
+Oscillation Frequency
+f = 1 / (2π * sqrt(L * (C<sub>1</sub> * C<sub>2</sub>) / (C<sub>1</sub> + C<sub>2</sub>)))
+>>>>>>> 6ad4c0b2eb4385b3b0e4afdce157e8b5ae34bd0b
  
 Feedback Mechanism
 Feedback is taken from the junction of C<sub>1</sub> and C<sub>2</sub>.
@@ -100,6 +117,7 @@ Biasing resistors
 Tank Circuit
 L is in series with C<sub>3; the series branch is in parallel with C<sub>1</sub> and C<sub>2</sub>.
 
+<<<<<<< HEAD
 Oscillation Frequency<br>
 
 <img src = "images/image_4.png"> <br>
@@ -114,6 +132,18 @@ Where:<br>
 ## Feedback Mechanism
 Like Colpitts, with feedback from voltage divider (C<sub>1</sub> and C<sub>2</sub>).
 
+=======
+Oscillation Frequency
+f = 1 / (2π * sqrt(L * Ceq))
+
+Where:
+
+1 / C<sub>eq</sub> = 1 / C<sub>1</sub> + 1 / C<sub>2</sub> + 1 / C<sub>3</sub>
+ 
+## Feedback Mechanism
+Like Colpitts, with feedback from voltage divider (C<sub>1</sub> and C<sub>2</sub>).
+
+>>>>>>> 6ad4c0b2eb4385b3b0e4afdce157e8b5ae34bd0b
 Extra capacitor (C<sub>3</sub>) enhances frequency stability.
 
 Tips for Practical Implementation
