@@ -27,11 +27,11 @@ Phase shift around the loop = 0° or 360°
 
 ###  1. Hartley Oscillator – Theory
 Circuit Description
-Contains two inductors (L1 and L2) and a capacitor (C) forming the LC tank circuit.
+Contains two inductors (L<sub>1</sub> and L<sub>2</sub>) and a capacitor (C) forming the LC tank circuit.
 
 Inductors can be two separate coils or a tapped inductor.
 
-Feedback is taken from the tap between L1 and L2.
+Feedback is taken from the tap between L<sub>1</sub> and L<sub>2.
 
 ## Working
 When powered on, noise or a transient signal starts oscillations.
@@ -53,14 +53,14 @@ Coil tapping may complicate tuning.
 
 ##  2. Colpitts Oscillator – Theory
 Circuit Description
-Uses a single inductor (L) and two capacitors (C1 and C2) in the tank circuit.
+Uses a single inductor (L) and two capacitors (C<sub>1</sub> and C<sub>2</sub>) in the tank circuit.
 
 The capacitors form a voltage divider for feedback.
 
 ## Working
 When the circuit is energized, the tank circuit begins to oscillate due to an initial disturbance.
 
-The voltage divider (C1 and C2) provides feedback to the transistor base/gate.
+The voltage divider (C<sub>1</sub> and C<sub>2</sub>) provides feedback to the transistor base/gate.
 
 The transistor amplifies the signal, sustaining oscillations.
 
@@ -85,14 +85,14 @@ Requires precise component values for desired frequency.
 Circuit Description
 A variation of the Colpitts oscillator.
 
-An additional capacitor (C3) is added in series with the inductor in the tank circuit.
+An additional capacitor (C<sub>3</sub>) is added in series with the inductor in the tank circuit.
 
-The tank now consists of L and C1, C2, and C3.
+The tank now consists of L and C<sub>1</sub>, C<sub>2</sub>, and C<sub>3</sub>.
 
 ## Working
-Similar to the Colpitts, but the frequency is controlled primarily by C3.
+Similar to the Colpitts, but the frequency is controlled primarily by C<sub>3</sub>.
 
-C3 isolates the oscillation frequency from variations in C1 and C2, improving stability.
+C<sub>3</sub> isolates the oscillation frequency from variations in C<sub>1</sub> and C<sub>2</sub>, improving stability.
 
 
 ​
@@ -111,7 +111,7 @@ Requires careful component selection.
 Feature	Hartley	Colpitts	Clapp
 Tank Circuit	2 inductors + 1 cap	1 inductor + 2 caps	1 inductor + 3 caps
 Feedback Source	Inductor tap	Capacitor divider	Capacitor divider
-Frequency Control	L and C	L and C1, C2	Primarily C3
+Frequency Control	L and C	L and C<sub>1</sub>, C<sub>2</sub>	Primarily C<sub>3</sub>
 Frequency Stability	Moderate	Good	Excellent
 Circuit Complexity	Simple	Moderate	Higher
 
