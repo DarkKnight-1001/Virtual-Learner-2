@@ -25,7 +25,7 @@ Total loop gain ≥ 1
 
 Phase shift around the loop = 0° or 360°
 
-### 🔹 1. Hartley Oscillator – Theory
+###  1. Hartley Oscillator – Theory
 Circuit Description
 Contains two inductors (L1 and L2) and a capacitor (C) forming the LC tank circuit.
 
@@ -51,7 +51,7 @@ Frequency stability is moderate.
 
 Coil tapping may complicate tuning.
 
-## 🔹 2. Colpitts Oscillator – Theory
+##  2. Colpitts Oscillator – Theory
 Circuit Description
 Uses a single inductor (L) and two capacitors (C1 and C2) in the tank circuit.
 
@@ -81,7 +81,7 @@ More complex than Hartley.
 
 Requires precise component values for desired frequency.
 
-## 🔹 3. Clapp Oscillator – Theory
+## 3. Clapp Oscillator – Theory
 Circuit Description
 A variation of the Colpitts oscillator.
 
@@ -107,7 +107,7 @@ Slightly more complex due to the extra capacitor.
 
 Requires careful component selection.
 
-## 📊 Comparison Summary
+##  Comparison Summary
 Feature	Hartley	Colpitts	Clapp
 Tank Circuit	2 inductors + 1 cap	1 inductor + 2 caps	1 inductor + 3 caps
 Feedback Source	Inductor tap	Capacitor divider	Capacitor divider
@@ -115,7 +115,7 @@ Frequency Control	L and C	L and C1, C2	Primarily C3
 Frequency Stability	Moderate	Good	Excellent
 Circuit Complexity	Simple	Moderate	Higher
 
-## 🧠 Conclusion
+##  Conclusion
 LC oscillators are key in generating sinusoidal signals, especially at RF and high-frequency ranges. Each type—Hartley, Colpitts, and Clapp—has its own strengths:
 
 Use Hartley for simplicity and easy tuning.
