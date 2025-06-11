@@ -42,22 +42,22 @@ Adjust L or C to fine-tune the oscillation frequency if necessary.
 Detailed StepsCircuit Components
 One capacitor (C)
 
-Two inductors (L1 and L2) or a tapped coil
+Two inductors (L<sub>1</sub> and L<sub>2</sub>) or a tapped coil
 
 One transistor (BJT or FET)
 
 Biasing resistors and coupling capacitors
 
 Tank Circuit
-L1 and L2 are in series; C is parallel with the combination.
+L<sub>1</sub> and L<sub>2</sub> are in series; C is parallel with the combination.
 
 Oscillation Frequency
-f = 1 / (2π * sqrt((L1 + L2) * C))
+f = 1 / (2π * sqrt((L<sub>1</sub> + L<sub>2</sub>) * C))
 
 ​
  
 ## Feedback Mechanism
-Feedback is taken from the junction of L1 and L2.
+Feedback is taken from the junction of L<sub>1</sub> and L<sub>2</sub>.
 
 Provides positive feedback through mutual inductance.
 
@@ -65,20 +65,20 @@ Provides positive feedback through mutual inductance.
 Detailed StepsCircuit Components
 One inductor (L)
 
-Two capacitors (C1 and C2)
+Two capacitors (C<sub>1</sub> and C<sub>2</sub>)
 
 One transistor
 
 Biasing network
 
 Tank Circuit
-L is in parallel with the series combination of C1 and C2.
+L is in parallel with the series combination of C<sub>1</sub> and C<sub>2</sub>.
 
 Oscillation Frequency
-f = 1 / (2π * sqrt(L * (C1 * C2) / (C1 + C2)))
+f = 1 / (2π * sqrt(L * (C<sub>1</sub> * C<sub>2</sub>) / (C<sub>1</sub> + C<sub>2</sub>)))
  
 Feedback Mechanism
-Feedback is taken from the junction of C1 and C2.
+Feedback is taken from the junction of C<sub>1</sub> and C<sub>2</sub>.
 
 Voltage divider action provides correct phase shift for oscillation.
 
@@ -86,26 +86,26 @@ Voltage divider action provides correct phase shift for oscillation.
 Detailed StepsCircuit Components
 One inductor (L)
 
-Three capacitors (C1, C2, and C3)
+Three capacitors (C<sub>1</sub>, C<sub>2</sub>, and C<sub>3</sub>)
 
 One transistor
 
 Biasing resistors
 
 Tank Circuit
-L is in series with C3; the series branch is in parallel with C1 and C2.
+L is in series with C<sub>3; the series branch is in parallel with C<sub>1</sub> and C<sub>2</sub>.
 
 Oscillation Frequency
 f = 1 / (2π * sqrt(L * Ceq))
 
 Where:
 
-1 / Ceq = 1 / C1 + 1 / C2 + 1 / C3
+1 / C<sub>eq</sub> = 1 / C<sub>1</sub> + 1 / C<sub>2</sub> + 1 / C<sub>3</sub>
  
 ## Feedback Mechanism
-Like Colpitts, with feedback from voltage divider (C1 and C2).
+Like Colpitts, with feedback from voltage divider (C<sub>1</sub> and C<sub>2</sub>).
 
-Extra capacitor (C3) enhances frequency stability.
+Extra capacitor (C<sub>3</sub>) enhances frequency stability.
 
 Tips for Practical Implementation
 Use RF chokes and bypass capacitors to stabilize the power supply.
